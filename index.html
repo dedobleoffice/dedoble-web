@@ -52,12 +52,17 @@ img { display: block; }
   text-align: center; white-space: nowrap; color: #fff; pointer-events: none;
   opacity: 0; animation: fade-in .9s ease .45s forwards; } /* the name comes in a moment after the black */
 
+/* "Coming soon" and Instagram share the second line; the point sits inside the pair so the line stays centred */
+.row { display: flex; align-items: center; gap: 10px 28px; flex-wrap: wrap; justify-content: center; }
+.row .status { padding-left: 17px; }
+.row .status::before { right: auto; left: 0; }
+
 /* Instagram: the one thing to do for now */
 .ig { color: #fff; }
 .ig span { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; text-decoration-color: rgba(255,255,255,.35); transition: text-decoration-color .3s ease; }
 .ig:hover span, .ig:focus-visible span { text-decoration-color: currentColor; }
 
-/* The foot: three lines, each on the centre line */
+/* The foot: two lines, each on the centre line */
 .foot { position: absolute; left: 0; right: 0; bottom: 26px; z-index: 3; display: flex; justify-content: center; align-items: center;
   flex-direction: column; gap: 6px; text-align: center; padding: 0 20px; margin: 0; font-size: 15px; color: var(--grey);
   opacity: 0; animation: fade-in 1s ease 1.2s forwards; }
@@ -90,10 +95,7 @@ img { display: block; }
   <h1 class="name">dedoble</h1>
   <p class="foot">
     <span>Architecture office – Barcelona</span>
-    <span class="status">Coming soon</span>
-    <a class="ig" href="https://www.instagram.com/dedoble.office/" target="_blank" rel="noopener" aria-label="Follow dedoble on Instagram, @dedoble.office">
-      <span>@dedoble.office</span>
-    </a>
+    <span class="row"><span class="status">Coming soon</span><a class="ig" href="https://www.instagram.com/dedoble.office/" target="_blank" rel="noopener" aria-label="Follow dedoble on Instagram, @dedoble.office"><span>@dedoble.office</span></a></span>
   </p>
 </main>
 <script>
