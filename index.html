@@ -17,8 +17,8 @@
 /* Hold the page until Inter Tight has loaded, so the name never shows in a stand-in face first.
    This sits after the font stylesheet, which the browser loads before running it. */
 (function(){
-  var d = document.documentElement; d.className += ' wf';
-  var show = function(){ d.className = d.className.replace(' wf', ''); };
+  var d = document.documentElement; d.classList.add('wf');
+  var show = function(){ d.classList.remove('wf'); };
   setTimeout(show, 2500);
   try { Promise.all([document.fonts.load('800 1em "Inter Tight"'), document.fonts.load('400 1em "Inter Tight"')]).then(show, show); } catch (e) { show(); }
 })();
