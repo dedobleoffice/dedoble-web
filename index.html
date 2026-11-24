@@ -40,7 +40,7 @@ a:focus-visible { outline: 1px solid currentColor; outline-offset: 4px; }
 img { display: block; }
 @keyframes page-in { from { opacity: 0; } }
 .wf body { visibility: hidden; animation: none; }
-.wf .foot { animation: none; }
+.wf .foot, .wf .name { animation: none; }
 @keyframes fade-in { to { opacity: 1; } }
 
 /* The page: one screen, nothing to scroll */
@@ -49,7 +49,8 @@ img { display: block; }
 /* The name */
 .name { position: absolute; left: 0; right: 0; top: 50%; z-index: 3; margin: 0 0 0 -.09em; transform: translateY(-50%);
   font-weight: 800; font-size: var(--name); line-height: 1; letter-spacing: -.09em; font-synthesis: none;
-  text-align: center; white-space: nowrap; color: #fff; pointer-events: none; }
+  text-align: center; white-space: nowrap; color: #fff; pointer-events: none;
+  opacity: 0; animation: fade-in .9s ease .45s forwards; } /* the name comes in a moment after the black */
 
 /* Instagram: the one thing to do for now */
 .ig { color: #fff; }
@@ -74,11 +75,12 @@ img { display: block; }
 
 /* Sizes */
 @media (max-width: 809.98px) {
+  .soon { --name: calc(28.5vw - 10px); } /* on phones the name runs to the 20px side margins */
   .foot { bottom: 22px; gap: 8px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  body, .foot { animation: none; opacity: 1; }
+  body, .foot, .name { animation: none; opacity: 1; }
   .status::before { animation: none; }
 }
 </style>
